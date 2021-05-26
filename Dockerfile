@@ -26,5 +26,6 @@ COPY --from=builder /usr/lib/libXrender* /usr/lib/
 COPY --from=builder /usr/lib/libbrotlicommon* /usr/lib/
 COPY --from=builder /usr/lib/libbrotlidec* /usr/lib/
 COPY --from=builder /usr/lib/libjpeg* /usr/lib/
+COPY --from=builder /etc/fonts /etc/fonts
 WORKDIR /home/appuser
 CMD ["cairosvg"]
