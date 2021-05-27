@@ -7,7 +7,7 @@ RUN apk add gcc cairo python3-dev libffi-dev zlib-dev linux-headers musl-dev jpe
 RUN pip3 install cairosvg
 
 FROM python:alpine
-RUN addgroup -S appuser && adduser -S appuser -G appuser
+RUN addgroup --gid 1000 -S appuser && adduser --uid 1000 -S appuser -G appuser
 USER appuser
 COPY --from=builder /usr/local/bin/cairosvg /usr/local/bin/cairosvg
 COPY --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
